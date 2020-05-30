@@ -55,7 +55,7 @@ class User:
         else:
             print('You financial health is at risk. Your EndWorth is: ',self.end_worth())
 
-#User Inputs
+#User variables
 CurrentAge_input=35
 CurrentSalary_input=2400000
 SalaryIncrement_input=2.5
@@ -69,14 +69,14 @@ RetirementAge_input=50       #Variable Inputs
 ExpenseChange_input=-12.09
 ROI_input=8
 
-#User Attributes
+#User Initialization
 user=User(CurrentAge_input,RetirementAge_input,CurrentSalary_input,SalaryIncrement_input,CurrentExpense_input,
           ExpenseChange_input,ExpenseIncrement_input,CurrentNetwoth_input,ROI_input,OneTimeExpenceWithAge_input,LifeExpectancy_input)
 
-user.msg()
-user.csv_writer()
+user.msg()  #User networth as per inputs
+user.csv_writer()  
 
-if user.end_worth()<0:
+if user.end_worth()<0:   # Iterations to calcualete optimized retire age, or expense cut or ROI
     #Optimized Retire Age
     retire_age=RetirementAge_input
     user_RA=user
@@ -106,7 +106,8 @@ if user.end_worth()<0:
                     LifeExpectancy_input)
     print('You should increase your ROI to', round(ROI,3),'percent and keep everything else unchanged')
 
-'''else:
+# If user have large endworth, he can also opt to retire early or increase his expense but right now i have made it optional
+'''else:    
     #Optimized Retire Age
     retire_age=RetirementAge_input
     user_RA=user
